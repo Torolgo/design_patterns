@@ -11,9 +11,18 @@ public class BurgerFastRestaurant {
         clientVips.remove(clientVip);
     }
 
+    public ArrayList<ClientVip> getClientVips() {
+        return clientVips;
+    }
+
+    public void creerPromotion(String codePromotion, double pourcentageRemise) {
+        Promotion promotion = new Promotion(codePromotion, pourcentageRemise);
+        notifierClientVips(promotion);
+    }
+
     public void notifierClientVips(Promotion promotion) {
         for (ClientVip clientVip : clientVips) {
-            clientVip.recevoirNotification(promotion.code, promotion.pourcentageRemise);
+            clientVip.recevoirNotification(promotion.getCode(), promotion.getPourcentageRemise());
         }
     }
 }

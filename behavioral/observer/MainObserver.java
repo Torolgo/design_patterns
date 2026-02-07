@@ -9,11 +9,9 @@ void main() {
     restaurant.ajouterClientVip(client2);
     restaurant.ajouterClientVip(client3);
 
-    Promotion promotion = new Promotion("PROMO20", 20.0);
-    restaurant.notifierClientVips(promotion);
+    restaurant.creerPromotion("PROMO20", 20.0);
 
     restaurant.supprimerClientVip(client1);
 
-    Promotion promotion2 = new Promotion("PROMO30", 30.0);
-    restaurant.notifierClientVips(promotion2);
+    restaurant.creerPromotion("PROMO30", 30.0);
 }
