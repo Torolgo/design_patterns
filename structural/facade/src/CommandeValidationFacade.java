@@ -8,9 +8,9 @@ public class CommandeValidationFacade {
         boolean CommandeValide = UtilisateurValide && ingredientsValides && tempsValide && livreurValide && AddresseValide;
 
         if (CommandeValide) {
-            System.out.println("La commande est valide et prête à être traitée.");
+            System.out.println("SUCCÈS : La commande est valide et prête à être traitée.");
         } else {
-            System.out.println("La commande n'est pas valide. Veuillez vérifier les informations fournies.");
+            System.err.println("ÉCHEC : La commande n'est pas valide. Veuillez vérifier les informations fournies.");
         }
     }
 }
