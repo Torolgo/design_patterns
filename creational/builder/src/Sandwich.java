@@ -8,7 +8,7 @@ public class Sandwich {
 
     public Sandwich(String pain){
         this.pain = pain;
-    };
+    }
 
     public String getPain() {
         return pain;
@@ -46,14 +46,15 @@ public class Sandwich {
     public void setGrille(Boolean grille) {
         this.grille = grille;
     }
-    public void showIngredients() {
-        System.out.println("--- Détails du Sandwich ---");
-        System.out.println("Pain : " + (pain != null ? pain : "Non spécifié"));
-        System.out.println("Viande : " + (viande != null ? viande : "Aucune"));
-        System.out.println("Fromage : " + (fromage != null ? fromage : "Aucun"));
-        System.out.println("Légumes : " + (legumes != null ? legumes : "Aucun"));
-        System.out.println("Sauce : " + (sauce != null ? sauce : "Aucune"));
-        System.out.println("Grillé : " + (grille != null && grille ? "Oui" : "Non"));
-        System.out.println("---------------------------");
+    @Override
+    public String toString() {
+        return "--- Détails du Sandwich ---\n" +
+                "Pain : " + (pain != null ? pain : "Non spécifié") + "\n" +
+                "Viande : " + (viande != null ? viande : "Aucune") + "\n" +
+                "Fromage : " + (fromage != null ? fromage : "Aucun") + "\n" +
+                "Légumes : " + (legumes != null ? legumes : "Aucun") + "\n" +
+                "Sauce : " + (sauce != null ? sauce : "Aucune") + "\n" +
+                "Grillé : " + (grille != null && grille ? "Oui" : "Non") + "\n" +
+                "---------------------------";
     }
 }

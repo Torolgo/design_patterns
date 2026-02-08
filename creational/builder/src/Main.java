@@ -6,7 +6,7 @@ void main() {
             .setSauce("mayonnaise")
             .setGrille(true)
             .build();
-    sandwich.showIngredients();
+    System.out.println(sandwich);
 
     Sandwich sandwich2 = new BuilderSandwich("pain de mie")
             .setViande("poulet")
@@ -15,7 +15,7 @@ void main() {
             .setSauce("ketchup")
             .setGrille(false)
             .build();
-    sandwich2.showIngredients();
+    System.out.println(sandwich2);
 
     Sandwich sandwich3 = new BuilderSandwich("baguette")
             .setViande("canard")
@@ -23,5 +23,5 @@ void main() {
             .setSauce("sauce au poivre")
             .setGrille(true)
             .build();
-    sandwich3.showIngredients();
+    System.out.println(sandwich3);
 }
