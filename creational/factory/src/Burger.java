@@ -1,4 +1,7 @@
+import java.util.List;
+
 public interface Burger {
     void preparer();
-    double afficherPrix();
+    List<String> getIngredients();
+    double getPrix();
 }

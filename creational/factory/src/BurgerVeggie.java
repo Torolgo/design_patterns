@@ -11,13 +11,14 @@ public class BurgerVeggie implements Burger {
         ingredients.add("Tomate");
         ingredients.add("Carotte");
     }
+    @Override
     public ArrayList<String> getIngredients() {
         return ingredients;
     }
-
     public void setIngredients(ArrayList<String> ingredients) {
         this.ingredients = ingredients;
     }
+    @Override
     public double getPrix() {
         return prix;
     }
@@ -28,10 +29,5 @@ public class BurgerVeggie implements Burger {
     @Override
     public void preparer() {
         System.out.println("Préparation : " + String.join(", ", ingredients));
-    }
-
-    @Override
-    public double afficherPrix() {
-        return prix;
     }
 }

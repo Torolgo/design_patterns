@@ -10,14 +10,14 @@ public class ChickenBurger implements Burger {
         ingredients.add("Poulet pané croustillant");
         ingredients.add("Sauce BBQ");
     }
-
+    @Override
     public ArrayList<String> getIngredients() {
         return ingredients;
     }
     public void setIngredients(ArrayList<String> ingredients) {
         this.ingredients = ingredients;
     }
-
+    @Override
     public double getPrix() {
         return prix;
     }
@@ -28,10 +28,5 @@ public class ChickenBurger implements Burger {
     @Override
     public void preparer() {
         System.out.println("Préparation : " + String.join(", ", ingredients));
-    }
-
-    @Override
-    public double afficherPrix() {
-        return prix;
     }
 }
