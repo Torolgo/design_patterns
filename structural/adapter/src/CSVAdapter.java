@@ -12,11 +12,7 @@ public class CSVAdapter implements AnalyseurVentes {
         double totalVente = 0;
 
         for (int i = 1; i < lecteurCSV.getNbLignes(); i++) {
-            String[] colonne = lecteurCSV.getColonnes(i);
-            String[] prixQuantite = colonne[2].split("x");
-            double prix = Double.parseDouble(prixQuantite[0].trim());
-            int quantite = Integer.parseInt(prixQuantite[1].trim());
-            totalVente += prix * quantite;
+            totalVente += calculerMontantLigne(i);
         }
         return totalVente;
     }
@@ -29,14 +25,30 @@ public class CSVAdapter implements AnalyseurVentes {
     @Override
     public Map<String, Double> getCAParProduit() {
         Map<String, Double> caParProduit = new java.util.HashMap<>();
-        for (int i = 1; i < lecteurCSV.getNbLignes(); i++) {
-            String[] colonne = lecteurCSV.getColonnes(i);
-            String[] prixQuantite = colonne[2].split("x");
-            String produit = colonne[1];
-            double prix = Double.parseDouble(prixQuantite[0].trim());
-            int quantite = Integer.parseInt(prixQuantite[1].trim());
-            caParProduit.put(produit, (prix * quantite));
+        try {
+             for (int i = 1; i < lecteurCSV.getNbLignes(); i++) {
+                String[] colonne = lecteurCSV.getColonnes(i);
+                String produit = colonne[1];
+                double montantLigne = calculerMontantLigne(i);
+                caParProduit.put(produit, caParProduit.getOrDefault(produit, 0.0) + montantLigne);
+            }
+        } catch (Exception e) {
+            System.err.println("Erreur lors du calcul du CA par produit : " + e.getMessage());
         }
         return caParProduit;
+    }
+
+    private double calculerMontantLigne(int index) {
+        try {
+            String[] colonne = lecteurCSV.getColonnes(index);
+            String[] prixQuantite = colonne[2].split("x");
+            double prix = Double.parseDouble(prixQuantite[0].trim());
+            int quantite = Integer.parseInt(prixQuantite[1].trim());
+            return prix * quantite;
+
+        } catch (Exception e) {
+            System.err.println("Erreur de lecture à la ligne " + index + " : " + e.getMessage());
+            return 0.0;
+        }
     }
 }
