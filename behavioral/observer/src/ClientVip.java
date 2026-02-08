@@ -1,4 +1,4 @@
-public class ClientVip {
+public class ClientVip implements ObservateurPromo {
     private String name;
 
     public ClientVip(String name) {
@@ -13,8 +13,9 @@ public class ClientVip {
         this.name = name;
     }
 
+    @Override
     public void recevoirNotification(String codePromotion, double pourcentageRemise) {
-        System.out.println("Le client VIP " + name + " a reçu une notification de promotion pour une remise de "+
-                pourcentageRemise + "%. "+ "Le code est : " + codePromotion);
+        System.out.println("Le client VIP " + name + " a reçu une notification de promotion pour une remise de " +
+                pourcentageRemise + "%. " + "Le code est : " + codePromotion);
     }
 }

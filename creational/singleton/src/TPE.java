@@ -10,7 +10,7 @@ public class TPE {
         return chiffreAffaires;
     }
 
-    public static TPE getInstance() {
+    public static synchronized TPE getInstance() {
         if (instance == null) {
             instance = new TPE();
         }

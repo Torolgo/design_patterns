@@ -1,28 +1,28 @@
 import java.util.ArrayList;
 
 public class BurgerFastRestaurant {
-    private ArrayList<ClientVip> clientVips = new ArrayList<>();
+    private ArrayList<ObservateurPromo> abonnes = new ArrayList<>();
 
-    public void ajouterClientVip(ClientVip clientVip) {
-        clientVips.add(clientVip);
+    public void ajouterAbonne(ObservateurPromo abonne) {
+        abonnes.add(abonne);
     }
 
-    public void supprimerClientVip(ClientVip clientVip) {
-        clientVips.remove(clientVip);
+    public void supprimerAbonne(ObservateurPromo abonne) {
+        abonnes.remove(abonne);
     }
 
-    public ArrayList<ClientVip> getClientVips() {
-        return clientVips;
+    public ArrayList<ObservateurPromo> getClientVips() {
+        return abonnes;
+    }
+
+    public void notifierAbonne(Promotion promotion) {
+        for (ObservateurPromo clientVip : abonnes) {
+            clientVip.recevoirNotification(promotion.getCode(), promotion.getPourcentageRemise());
+        }
     }
 
     public void creerPromotion(String codePromotion, double pourcentageRemise) {
         Promotion promotion = new Promotion(codePromotion, pourcentageRemise);
-        notifierClientVips(promotion);
-    }
-
-    public void notifierClientVips(Promotion promotion) {
-        for (ClientVip clientVip : clientVips) {
-            clientVip.recevoirNotification(promotion.getCode(), promotion.getPourcentageRemise());
-        }
+        notifierAbonne(promotion);
     }
 }

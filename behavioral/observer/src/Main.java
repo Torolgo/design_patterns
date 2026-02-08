@@ -5,13 +5,13 @@ void main() {
     ClientVip client2 = new ClientVip("Loic");
     ClientVip client3 = new ClientVip("Nathan");
 
-    restaurant.ajouterClientVip(client1);
-    restaurant.ajouterClientVip(client2);
-    restaurant.ajouterClientVip(client3);
+    restaurant.ajouterAbonne(client1);
+    restaurant.ajouterAbonne(client2);
+    restaurant.ajouterAbonne(client3);
 
     restaurant.creerPromotion("PROMO20", 20.0);
 
-    restaurant.supprimerClientVip(client1);
+    restaurant.supprimerAbonne(client1);
 
     restaurant.creerPromotion("PROMO30", 30.0);
 }
